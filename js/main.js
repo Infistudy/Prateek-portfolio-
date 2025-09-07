@@ -269,9 +269,34 @@
     fixedContentPos: false
   });
 
+  // Typing animation
+  const typingAnimationElement = document.getElementById('typing-animation');
+  const typingTexts = [
+    'Google Certified  ',
+    'Data Analyst   ',
+    'Engineer   ',
+  ];
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
+  async function playTypingAnimation() {
+    let i = 0;
+    while (true) {
+      const text = typingTexts[i];
+      typingAnimationElement.style.fontSize = '40px';
+      typingAnimationElement.textContent = '';
+      for (let j = 0; j < text.length; j++) {
+        typingAnimationElement.textContent += text[j];
+        await sleep(200);
+      }
+      await sleep(1000); // wait for 1 second before starting the next text
+      i = (i + 1) % typingTexts.length;
+    }
+  }
 
+  playTypingAnimation();
 
 })(jQuery);
 
