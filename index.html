@@ -647,24 +647,22 @@
   
   <script src="js/main.js"></script>
 
-
-<!-- Botpress Welcome Message Configuration -->
+<!-- Botpress Welcome Message Config MUST load before bot -->
 <script>
   window.botpressWebChat = {
-    // Add any name you want for bot
     botName: "AI Assistant",
 
-    // Auto welcome message
+    // 👇 THIS RUNS AUTOMATICALLY WHEN CHAT WIDGET LOADS
     onLoad: function () {
       window.botpressWebChat.sendEvent({
         type: "proactive",
-        text: "Hey there! How can I help you today?"
+        text: "Hey there! 👋 How can I help you today?"
       });
     }
   };
 </script>
 
-<!-- Your existing Botpress scripts -->
+<!-- Botpress scripts (already from your code) -->
 <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
 <script src="https://files.bpcontent.cloud/2025/08/15/06/20250815063355-EBGH1V8Z.js" defer></script>
 
