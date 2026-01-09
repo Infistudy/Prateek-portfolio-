@@ -188,7 +188,7 @@
 
 						<br>
 						<br>
-			            <h2>A AI Automation Expert </h2>
+			            <h2>Expertise in AI Automation</h2>
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 2 years of experience</h2> -->
 						<!-- <br> -->
 			            <p><a href="https://www.linkedin.com/in/prateek-kumar-tripathi-16aa58344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
@@ -648,9 +648,26 @@
   <script src="js/main.js"></script>
 
 
-    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+<!-- Botpress Welcome Message Configuration -->
+<script>
+  window.botpressWebChat = {
+    // Add any name you want for bot
+    botName: "AI Assistant",
+
+    // Auto welcome message
+    onLoad: function () {
+      window.botpressWebChat.sendEvent({
+        type: "proactive",
+        text: "Hey there! How can I help you today?"
+      });
+    }
+  };
+</script>
+
+<!-- Your existing Botpress scripts -->
+<script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
 <script src="https://files.bpcontent.cloud/2025/08/15/06/20250815063355-EBGH1V8Z.js" defer></script>
-    
+
 	  
   </body>
 </html>
