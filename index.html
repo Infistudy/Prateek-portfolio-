@@ -30,10 +30,14 @@
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 ::selection {
@@ -47,7 +51,7 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  z-index: 99;
+  z-index: 1100;
   font-size: 18px;
   border: none;
   outline: none;
@@ -225,6 +229,29 @@ body {
   width: 100%;
 }
 
+/* Mobile-safe chat widget and floating assistant layout */
+.bpFab,
+.bpw-widget-side-button,
+.bpw-widget-container {
+  max-width: 100vw !important;
+  max-height: calc(100dvh - 24px) !important;
+}
+
+.bpFab {
+  bottom: 16px !important;
+  right: 12px !important;
+  transform: scale(0.9) !important;
+}
+
+.bpw-layout {
+  height: auto !important;
+  max-height: calc(100dvh - 110px) !important;
+}
+
+.bpw-widget-container {
+  inset: auto 12px 84px auto !important;
+}
+
 .assistant-float {
   position: fixed;
   right: 40px;
@@ -232,6 +259,7 @@ body {
   z-index: 1000;
   display: none;
   cursor: pointer;
+  touch-action: manipulation;
   animation: assistant-float 3.2s ease-in-out infinite;
 }
 
@@ -382,23 +410,44 @@ body {
 }
 
 @media (max-width: 767px) {
+  #scrollTopBtn {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
   .assistant-float {
-    right: 15px;
-    bottom: 90px;
+    right: 12px;
+    bottom: 82px;
   }
 
   .assistant-bubble {
-    right: 72px;
-    bottom: 58px;
-    min-width: 180px;
-    max-width: 220px;
-    font-size: 0.85rem;
-    padding: 0.7rem 0.85rem;
+    right: 64px;
+    bottom: 50px;
+    min-width: 160px;
+    max-width: 200px;
+    font-size: 0.8rem;
+    padding: 0.65rem 0.75rem;
   }
 
   .assistant-robot {
-    width: 68px;
-    height: 68px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .assistant-close {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+
+  .bpFab {
+    transform: scale(0.82) !important;
+    bottom: 10px !important;
+    right: 8px !important;
   }
 }
 
@@ -763,7 +812,7 @@ body {
 			<div class="row">
     			<div class="col-md-6">
     				<div class="resume-wrap ftco-animate">
-    					<span class="date">2026-Present</span>
+    					<span class="date">2023-Present</span>
     					<h2>BCA in Data Science</h2>
     					<span class="position">Chandigarh University</span>
     					<p class="mt-4">Pursuing a Bachelor of Computer Applications specializing in Data Science.</p>
